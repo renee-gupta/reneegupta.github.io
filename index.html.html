@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renee Gupta - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #E8F5E9 0%, #FFF9C4 50%, #B3E5FC 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFEB3B 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #42A5F5, #FFF176, #42A5F5);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #1976D2;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            color: #0277BD;
+            font-size: 1.15em;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            color: #01579B;
+            font-weight: 500;
+        }
+
+        .contact-item a {
+            color: #01579B;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #E1F5FE 0%, #FFF9C4 100%);
+            padding: 18px;
+            text-align: center;
+            border-bottom: 3px solid #42A5F5;
+        }
+
+        nav a {
+            color: #1976D2;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background-color: #42A5F5;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px 35px;
+        }
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            color: #1976D2;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid #FFF176;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #42A5F5;
+        }
+
+        h3 {
+            color: #0277BD;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* About Section */
+        #about p {
+            background: linear-gradient(135deg, #E1F5FE 0%, #FFFDE7 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid #42A5F5;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Education */
+        .education-item {
+            background: linear-gradient(135deg, #FFFDE7 0%, #E1F5FE 100%);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #FDD835;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateX(8px);
+        }
+
+        .date {
+            color: #0277BD;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        /* Skills */
+        .skills-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .skills-list li {
+            background: linear-gradient(135deg, #E1F5FE 0%, #FFFDE7 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #42A5F5;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .skills-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(66, 165, 245, 0.3);
+        }
+
+        .skills-list li::before {
+            content: '✓ ';
+            color: #1976D2;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Achievements */
+        .achievement {
+            background: linear-gradient(135deg, #FFFDE7 0%, #E1F5FE 100%);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #42A5F5;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .achievement:hover {
+            transform: scale(1.02);
+        }
+
+        /* Position */
+        .position {
+            background: linear-gradient(135deg, #E1F5FE 0%, #FFFDE7 100%);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-top: 5px solid #FDD835;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .position:hover {
+            transform: translateY(-5px);
+        }
+
+        .position h3 {
+            color: #1976D2;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        /* Extra Curriculars */
+        #extracurriculars ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #extracurriculars li {
+            background: linear-gradient(135deg, #FFFDE7 0%, #E1F5FE 100%);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #FDD835;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        #extracurriculars li::before {
+            content: '🎯 ';
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1976D2 0%, #0277BD 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer a {
+            color: #FFF176;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 15px;
+            font-size: 1.5em;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            nav a {
+                display: block;
+                margin: 8px 0;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .profile-img {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <img src="profile.jpg" alt="Renee Gupta" class="profile-img">
+            <h1>Renee Gupta</h1>
+            <p class="tagline">BBA Student | Sales Enthusiast | Debater | Pianist | Swimmer</p>
+            <div class="contact-info">
+                <div class="contact-item">📧 <a href="mailto:101reneegupta@gmail.com">101reneegupta@gmail.com</a></div>
+                <div class="contact-item">📱 <a href="tel:+918971808885">+91 8971808885</a></div>
+                <div class="contact-item">📍 Bengaluru, India</div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#positions">Positions</a>
+            <a href="#extracurriculars">Extra Curriculars</a>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- About Section -->
+            <section id="about">
+                <h2>About Me</h2>
+                <p>I am a motivated second-year BBA student with a strong academic foundation and a clear passion for sales and customer engagement. I thrive in people-centric environments and bring strong communication and interpersonal skills to every interaction.</p>
+                <p>I am deeply interested in understanding customer buying behaviour—what drives decisions, builds trust, and creates long-term value. I actively take initiative in planning, organizing, and leading activities, and I enjoy working in dynamic environments.</p>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <h2>Education</h2>
+                
+                <div class="education-item">
+                    <h3>Indian Institute of Management - Bangalore (IIMB)</h3>
+                    <p class="date">2025 - Present</p>
+                    <p>Bachelor of Business Management in Entrepreneurship and Digital Business - 1st Year</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>T.A. Pai Institute of Management, MAHE, Bengaluru</h3>
+                    <p class="date">2024 - Present</p>
+                    <p>Bachelor of Business Management - 2nd Year</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Greenwood High International School</h3>
+                    <p class="date">Completed in 2024</p>
+                    <p>Grade 1 - 12</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Google</h3>
+                    <p>Course in Digital Marketing and E-Commerce</p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>Public Speaking & Debating</li>
+                    <li>Persuasive Communication & Negotiation</li>
+                    <li>Client Relationship Management</li>
+                    <li>Team Collaboration & Leadership</li>
+                    <li>Social Media Awareness</li>
+                    <li>Analytical Thinking & Problem Solving</li>
+                    <li>Presentation & Communication Skills</li>
+                    <li>Microsoft Office and Python</li>
+                </ul>
+            </section>
+
+            <!-- Key Achievements Section -->
+            <section id="achievements">
+                <h2>Key Achievements</h2>
+                
+                <div class="achievement">
+                    <h3>Active Debater & Public Speaker</h3>
+                    <p class="date">Present</p>
+                    <p>Active member of debating and public speaking forums in school and college.</p>
+                </div>
+
+                <div class="achievement">
+                    <h3>Trained Classical Pianist</h3>
+                    <p class="date">2011 - Present</p>
+                    <p>Trained classical pianist with deep passion for the arts.</p>
+                </div>
+
+                <div class="achievement">
+                    <h3>State Level Competitive Swimmer</h3>
+                    <p class="date">2017 - 2024</p>
+                    <p>Recipient of multiple Gold Medals in swimming; competed at State Level.</p>
+                </div>
+
+                <div class="achievement">
+                    <h3>World Scholars Cup Global Finalist</h3>
+                    <p class="date">2018 - 2023</p>
+                    <p>Participated in the World Scholars Cup among students from over 55 countries; reached final round at Yale University and won 13+ medals across categories.</p>
+                </div>
+
+                <div class="achievement">
+                    <h3>Clinical Psychology Internship</h3>
+                    <p class="date">2021</p>
+                    <p>Internship in Clinical Psychology, Fortis Hospitals.</p>
+                </div>
+            </section>
+
+            <!-- Positions of Responsibility -->
+            <section id="positions">
+                <h2>Positions of Responsibility</h2>
+                
+                <div class="position">
+                    <h3>Zonal Representative - IIMB</h3>
+                    <p>I am responsible for initiating and coordinating engagement activities and events across the assigned zone, acting as a SPOC (Single Point of Contact) between students and IIMB Teams. This has further helped me develop my organizing, planning and communication skills.</p>
+                </div>
+
+                <div class="position">
+                    <h3>Coordinator - Student Welfare Committee, TAPMI Bangalore</h3>
+                    <p>Leading student welfare initiatives and serving as a bridge between students and administration to enhance campus life and student support systems.</p>
+                </div>
+            </section>
+
+            <!-- Extra Curriculars -->
+            <section id="extracurriculars">
+                <h2>Extra Curriculars</h2>
+                <ul>
+                    <li>Hosted the annual MAHE festival as an Emcee</li>
+                    <li>Competitive swimmer since age 10</li>
+                    <li>Pianist – trained in classical piano</li>
+                    <li>Active in debates, Model United Nations (MUN), and community events</li>
+                    <li>Passionate about music, sports, current affairs, and international events</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Contact: <a href="mailto:101reneegupta@gmail.com">101reneegupta@gmail.com</a> | <a href="tel:+918971808885">+91 8971808885</a></p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/reneegupta" target="_blank">💼</a>
+                <a href="mailto:101reneegupta@gmail.com">📧</a>
+                <a href="https://instagram.com/reneegupta" target="_blank">📸</a>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2024 Renee Gupta. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+
